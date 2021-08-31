@@ -45,24 +45,24 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="title">Ttulo: </label>
-                                    <input type="text" name="title" id="title" v-model.lazy="foto.titulo" maxlength="50" class="form-control" placeholder="Digite o titulo da foto" aria-describedby="titleID" required>
-                                    <small id="titleID" class="text-muted">Máximo 50 caracteres!</small>
+                                    <input type="text" name="title" id="title" v-model="foto.titulo" v-validate data-vv-rules="required" data-vv-as="'Titulo'" maxlength="50" class="form-control" placeholder="Digite o titulo da foto" aria-describedby="titleID" required>
+                                    <small v-show="errors.has('title')" class="text-danger">{{ errors.first('title') }}</small>
                                 </div>
                             </div>
 
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label for="title">URL: </label>
-                                    <input type="text" name="title" id="title" v-model.lazy="foto.url" class="form-control" placeholder="Digite a URL da foto" aria-describedby="titleID" required>
-                                    <small id="titleID" class="text-muted text-success">Exemplo: http://www.google.com/imagem</small>
+                                    <label for="url">URL: </label>
+                                    <input type="text" name="url" id="url" v-model="foto.url" v-validate data-vv-rules="required" data-vv-as="'URL'" class="form-control" placeholder="Digite a URL da foto" aria-describedby="urlID" required>
+                                    <small v-show="errors.has('url')" class="text-danger">{{ errors.first('url') }}</small>
                                 </div>
                             </div>
 
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label for="title">Descrição: </label>
-                                    <textarea type="text" name="title" id="title" v-model.lazy="foto.descricao" maxlength="200" class="form-control" placeholder="Descrição da foto" aria-describedby="titleID"></textarea>
-                                    <small id="titleID" class="text-muted">Máximo 200 caracteres!</small>
+                                    <label for="description">Descrição: </label>
+                                    <textarea type="text" name="description" id="description" v-model="foto.descricao" v-validate data-vv-rules="required" data-vv-as="'Descrição'" maxlength="200" class="form-control" placeholder="Descrição da foto" aria-describedby="descriptionID"></textarea>
+                                    <small v-show="errors.has('description')" class="text-danger">{{ errors.first('description') }}</small>
                                 </div>
                             </div>
 
